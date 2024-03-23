@@ -1,30 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Badge from '../components/Badge.astro';
+import SocialPill from '../components/SocialPill.astro';
+import Linkedin from '../components/icons/Linkedin.astro';
+import Github from '../components/icons/Github.astro';
+import MailFoward from '../components/icons/MailFoward.astro';
 
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<section class="w-full sm:w-[538px] lg:w-[948px] py-36">
-			<div class="flex flex-row gap-x-5 sm:p-2 mb-5 text-wrap">
-				<div class="flex justify-center items-center size-28 sm:size-32"> 
+		<section class="w-full sm:w-[448px] lg:w-[948px] py-28 px-4">
+			<div class="flex flex-row gap-x-4 text-wrap">
+				<div class="flex justify-center items-center max-w-28  min-w-20"> 
 					<img class=" rounded-full" src="./photo2.jpeg" alt="me">
 				</div>
 				<h1 class=" text-c-light-purple text-3xl sm:text-5xl lg:text-6xl  flex flex-row gap-x-2 items-center font-extrabold ">
 					Hi, I'm Jorge Santillan
 				</h1>
-				<a class="flex justify-center items-center " 
+				<a class="flex justify-center items-center text-nowrap" 
 				href="https://www.linkedin.com/in/jorge-santillan-2855322b1/" 
-				target="_blank"
-				>					
-					<Badge>Avaible to Work</Badge>
+				target="_blank">					
+					<Badge>Avaible for Work</Badge>
 				</a>
 			</div>
-			<h2 class=" text-xl sm:text-2xl">
+			<h2 class=" text-xl sm:text-2xl text-pretty py-5">
 				As a software developer, I am passionate about developing web solutions using best practices. I have experience in developing, designing, and maintaining web applications.
 			</h2>
-			<ul></ul>
+			<ul class="flex flex-row gap-x-4 py-4 ">
+				<li>
+					<SocialPill href="https://www.linkedin.com/in/jorge-santillan-2855322b1/">
+						<Linkedin />
+						Linkedin
+					</SocialPill>
+				</li>
+				<li>
+					<SocialPill href="https://github.com/JEstebanSanti">
+						<Github />
+						Github
+					</SocialPill>
+				</li>
+				<li>
+					<SocialPill href="mailto:a20311083@uthermosillo.edu.mx">
+						<MailFoward />
+						Mail
+					</SocialPill>
+				</li>
+			</ul>
 		</section>
 	</main>
 </Layout>
