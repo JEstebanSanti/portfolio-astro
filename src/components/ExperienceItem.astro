@@ -1,0 +1,17 @@
+---
+const {title, date, desc,index} = Astro.props
+---
+<div class="flex flex-row items-center justify-between">
+    <h4 class=" text-3xl font-semibold py-0">
+        {title}
+    </h4>
+    <span class=`
+    ${
+     (index === 0)? "visible":"collapse"   
+    }
+     px-2.5 text-md font-medium bg-blue-300/90 rounded-r-lg`>Latest</span>
+
+</div>
+<time class=" pb-4 font-light" datetime="">{date}</time>
+<p class="text-pretty py-4">{desc}</p>
+
