@@ -7,6 +7,7 @@ import Github from '../components/icons/Github.astro';
 import MailFoward from '../components/icons/MailFoward.astro';
 import Experience from '../components/Experience.astro';
 import Projects from '../components/Projects.astro';
+import AnimateBorderPill from '../components/AnimateBorderPill.astro';
 
 ---
 
@@ -18,10 +19,12 @@ import Projects from '../components/Projects.astro';
 				<h1 class=" text-c-light-purple text-2xl sm:text-3xl md:text-5xl font-extrabold ">
 					Hi, I'm Jorge Santillan
 				</h1>
-				<a class="flex sm:justify-center py-2 sm:items-center text-nowrap" 
+				<a class="text-nowrap p-3" 
 				href="https://www.linkedin.com/in/jorge-santillan-2855322b1/" 
-				target="_blank">					
-					<Badge>Avaible for Work</Badge>
+				target="_blank">	
+					<Badge class=" font-semibold text-c-light-purple motion-safe:animate-spin text-sm me-2 px-3.5 py-2.5 rounded text-pretty text-md bg-c-light-blue">
+						Avaible for Work
+					</Badge>
 				</a>
 			</div>
 			<h2 class=" text-lg sm:text-xl md:text-2xl text-pretty py-5">
