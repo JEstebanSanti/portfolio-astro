@@ -1,0 +1,31 @@
+---
+import ProjectItem from "./ProjectItem.astro"
+const PROJECTS = [
+    {
+        title:"GifExper API",
+        desc:"Application with React Javascript vanilla and Tailwing: The application can perform queries based on searches that the user provides, this uses the Giphy API.",
+        repo:"https://github.com/JEstebanSanti/react-learn/tree/gifExpertAPI",
+        site:"https://unique-sable-8fb88f.netlify.app/",
+        images:[
+            "./gifexpert-desk.webp",
+            
+
+        ],
+        tags:[
+            "React",
+            "Vite",
+            "Javascript vanilla",
+            "Tailwind css",
+            "API",
+        ],
+    },
+]
+---
+<h3 class=" text-2xl sm:text-4xl text-pretty py-5 font-semibold">Projects</h3>
+{
+    PROJECTS.map(project => (
+        <div class="w-full">        
+            <ProjectItem {...project}/>
+        </div>
+    ))
+}
