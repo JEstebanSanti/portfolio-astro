@@ -4,14 +4,16 @@ import SocialPill from "./SocialPill.astro"
 import Github from "./icons/Github.astro"
 import Site from "./icons/Site.astro"
 
-    interface Project  {
-        title: string,
-        desc: string,
-        repo: string,
-        images: string[],
-        tags: string[],
-    }
-    const project = Astro.props
+interface Props {
+    images: string[],
+    tags: string[],
+    desc: string[]
+    site?: string,
+    repo: string,
+    title: string,
+}
+
+const project = Astro.props
 ---
 
 <div class="w-full">
@@ -23,7 +25,7 @@ import Site from "./icons/Site.astro"
 </div>
 <div class="flex sm:gap-x-4 px-2">
 {
-    project.tags.map( (tag: Project) =>(
+    project.tags.map( (tag: string) =>(
         <Badge class=" bg-c-light-purple/20 dark:bg-c-light-purple text-sm me-2 px-1.5 sm:px-2.5 py-0.5 rounded ">{ tag }</Badge>
     ))
 }
