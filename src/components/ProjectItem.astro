@@ -1,45 +1,66 @@
 ---
-import Badge from "./Badge.astro"
-import SocialPill from "./SocialPill.astro"
-import Github from "./icons/Github.astro"
-import Site from "./icons/Site.astro"
+import Badge from "./Badge.astro";
+import SocialPill from "./SocialPill.astro";
+import Github from "./icons/Github.astro";
+import Site from "./icons/Site.astro";
 
 interface Props {
-    images: string[],
-    tags: string[],
-    desc: string
-    site?: string,
-    repo: string,
-    title: string,
+    images: string[];
+    tags: string[];
+    desc: string;
+    site?: string;
+    repo: string;
+    title: string;
 }
 
-const project = Astro.props
+const project = Astro.props;
 ---
 
-<div class="w-full mb-5">
-    <img class="rounded-xl object-fill  p-2" src=`${ project.images[0] }` alt=`${ project.title + " image" }` >
+<h4 class="text-2xl font-bold p-1">{project.title}</h4>
+<div class=`grid ${project.images.length > 1 ? "grid-cols-2": "grid-cols-1"} w-full`>
+    {   
+        project.images.length > 1 ? (
+            project.images.map((img:string )=>(
+                <img
+                class="rounded-xl object-cover p-2"
+                src={img}
+                alt={project.title + " image"}
+                />
+            ))
+        ) : (
+            <img
+                class="rounded-xl object-fill p-2"
+                src={project.images[0]}
+                alt={project.title + " image"}
+            />
+        )
+    }
 </div>
 <div class="p-2 mb-5">
-    <h4 class=" text-2xl font-bold p-1">{project.title}</h4>
-    <p class=" text-pretty text-xl sm:text-2xl">{project.desc}</p>
+    <p class="text-pretty text-xl sm:text-2xl">{project.desc}</p>
 </div>
-<div class="flex flex-wrap sm:gap-x-4 px-2 gap-y-1 mb-5">
-{
-    project.tags.map( (tag: string) =>(
-        <Badge class=" bg-c-light-purple/20 dark:bg-c-light-purple text-sm me-2 px-1.5 sm:px-2.5 py-0.5 rounded ">{ tag }</Badge>
-    ))
-}
-</div>
-<div class="flex flex-row py-3 gap-x-4 px-2 mb-5">
+<div class="flex flex-wrap sm:gap-x-3 px-2 py-1.5">
     {
-        <SocialPill href={project.repo} > 
-                <Github/>
-                Github
-        </SocialPill>
-        <SocialPill href={project.site} > 
+        project.tags.map((tag: string) => (
+            <Badge class=" bg-c-light-purple/20 dark:bg-c-light-purple text-sm me-2 px-1.5 sm:px-2.5 py-0.5 rounded mt-2.5">
+                {tag}
+            </Badge>
+        ))
+    }
+</div>
+<div class="flex flex-row py-4 gap-x-4 px-2 mb-5">
+    <SocialPill href={project.repo}>
+        <Github />
+        Github
+    </SocialPill>
+    {
+        project.site ? (
+            <SocialPill href={project.site}>
                 <Site />
                 Site
-        </SocialPill>
+            </SocialPill>
+        ) : (
+            ""
+        )
     }
-   
 </div>
