@@ -1,16 +1,52 @@
-<header class=" dark:bg-cbg-dark sm:w-[428px] md:w-[648px] lg:w-[948px] flex justify-center sm:justify-between items-center py-3 ">
-    <a href="/" class="flex flex-col justify-center sm:flex-row items-center sm:gap-2">
+---
+import ThemeTg from "./ThemeTg.astro";
+import Hamburger from "./icons/Hamburger.astro";
+---
+
+<header class="w-full dark:bg-cbg-dark flex justify-between lg:max-w-5xl sm:justify-between items-center py-4 px-20 ">
+    <a href="/" class="flex justify-between sm:flex-row sm:gap-2">
         <img 
-        class=" size-10 sm:size-4 rounded-sm"
+        class=" size-10 rounded-sm"
         src="/logo-100px.jpg" 
         alt="logo"
         >
-        <span class="collapse md:visible self-center text-md font-semibold whitespace-nowrap dark:text-white">Portfolio</span>
-    </a>   
-    <nav class="flex flex-row gap-x-2 text-md items-center sm:gap-x-4 font-medium">    
-        <a class="hover:text-c-light-purple" href="#top">home</a>
+        <span class="hidden md:visible self-center text-md font-semibold  dark:text-white">Portfolio</span>
+    </a>
+    <button class="navbar-drop  flex justify-end navbar-toggle md:collapse">
+        <Hamburger></Hamburger>
+        <div class="navbar-menu relative hidden">
+            <nav class=" flex-col gap-y-2 text-sm absolute bottom-0 top-8 right-0 min-w-16 scale-90">  
+                <a class=" hover:text-c-light-purple p-1" href="#top">home</a>
+                <a class=" hover:text-c-light-purple p-1" href="#experience">experience</a>
+                <a class=" hover:text-c-light-purple p-1" href="#projects">projects</a>
+                <a class=" hover:text-c-light-purple p-1" href="#about">about me</a>
+        </nav>
+        </div>
+        
+    </button>  
+    <nav class="hidden md:inline-block md:flex-row gap-x-16 text-md items-center font-medium">   
+        <div class="md:flex-row gap-x-4 justify-evenly ">
+         <a class="hover:text-c-light-purple" href="#top">home</a>
         <a class="hover:text-c-light-purple" href="#experience">experience</a>
         <a class="hover:text-c-light-purple" href="#projects">projects</a>
         <a class="hover:text-c-light-purple" href="#about">about me</a>
+        </div> 
+       
     </nav>
 </header>
+
+<script>
+    const hamburgerBtn = document.querySelector(".navbar-drop")
+    const navbarMenu = document.querySelector(".navbar-menu")
+
+    document.addEventListener("click", ()=>{
+        navbarMenu?.classList.add("hidden")
+    })
+    hamburgerBtn?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navbarMenu?.classList.remove("hidden")
+
+    });
+    // Cierra el dropdown si esta abierto
+    
+</script>
